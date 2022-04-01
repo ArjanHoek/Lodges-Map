@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.map {
+  position: relative;
+  height: 100%;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+.map-menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #fff;
+}
