@@ -21,7 +21,7 @@ class GoogleMapsAPI {
 
   setData() {
     const key = this.mapEl.id.split('--')[1];
-    this.data = (data[key] || []).map((item, id) => ({ ...item, id }));
+    this.data = data[key] || [];
   }
 
   setOptions(initCenter, initZoom) {
@@ -86,9 +86,7 @@ class GoogleMapsAPI {
   createMarkers() {
     this.markers = this.data.map(item => this.createMarker(item));
 
-    if (this.options.cluster) {
-      this.setClusters();
-    }
+    this.setClusters();
   }
 
   showMarkersByIds(ids) {
@@ -112,5 +110,7 @@ function initMaps() {
     [47.061410805247924, 11.50738865609017]
   );
 
-  new FilterState(lodgesMapAPI);
+  const lodgesUI = new UIController(lodgesMapAPI);
+
+  lodgesUI.createFilters(data.tours);
 }
